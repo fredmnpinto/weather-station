@@ -14,8 +14,4 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 # configure the container to run in an executed manner
-ENTRYPOINT [ "python" ]
-
-EXPOSE 5000:5000
-
-CMD ["view.py" ]
+CMD ["python", "view.py"]
