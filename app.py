@@ -1,12 +1,17 @@
 from flask import Flask, render_template
 import os
+import reading.temperature_humidity as sensor
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template(
+        'index.html', 
+        temperature=sensor.current_temperature(), 
+        humidity=sensor.current_humidity()
+        )
 
 
 if __name__ == "__main__":
